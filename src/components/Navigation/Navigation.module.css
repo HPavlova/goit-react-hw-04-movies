@@ -1,0 +1,21 @@
+.link {
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+  padding-right: 5px;
+}
+
+.activeLink {
+  color: rgb(236, 96, 96);
+}
+
+hr {
+  border: none;
+  height: 20px;
+  width: 98%;
+  height: 50px;
+  margin-top: 0;
+  border-bottom: 1px solid #1f1209;
+  box-shadow: 0 20px 20px -20px #333;
+  margin: -40px auto 10px;
+}
