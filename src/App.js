@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 import AppBar from './components/AppBar/AppBar';
@@ -9,15 +11,14 @@ const MoviesPage = lazy(() => import('./views/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() =>
   import('./views/MovieDetailsPage/MovieDetailsPage'),
 );
-
-// Если пользователь зашел по несуществующему маршруту, его необходимо перенаправлять на домашнюю страницу.
+const NotFoundView = lazy(() => import('./views/NotFoundView/NotFoundView'));
 
 export default function App() {
   return (
     <>
       <AppBar />
-      <Switch>
-        <Suspense fallback={<h1>ЗАГРУЖАЕМ...</h1>}>
+      <Suspense fallback={<h1>ЗАГРУЖАЕМ...</h1>}>
+        <Switch>
           <Route path="/" exact>
             <HomePage />
           </Route>
@@ -29,8 +30,13 @@ export default function App() {
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
           </Route>
-        </Suspense>
-      </Switch>
+
+          <Route>
+            <NotFoundView />
+          </Route>
+        </Switch>
+      </Suspense>
+      <ToastContainer />
     </>
   );
 }
