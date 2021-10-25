@@ -3,23 +3,26 @@ import styles from '../Navigation/Navigation.module.css';
 
 export default function Navigation() {
   return (
-    <nav>
-      <NavLink
-        exact
-        to="/"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Home
-      </NavLink>
+    <>
+      <nav>
+        <NavLink
+          exact
+          to="/"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          Home
+        </NavLink>
 
-      <NavLink
-        to="/movies"
-        className={styles.link}
-        activeClassName={styles.activeLink}
-      >
-        Movies
-      </NavLink>
-    </nav>
+        <NavLink
+          to="/movies"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          Movies
+        </NavLink>
+      </nav>
+      <hr />
+    </>
   );
 }

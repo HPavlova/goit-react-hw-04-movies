@@ -8,10 +8,9 @@ const DETAILS_URL = '/movie/';
 async function fetchWithErrorHandling(url = '') {
   const response = await fetch(url);
 
-  return response.ok
-    ? await response.json()
-    : Promise.reject(new Error(`Not found`));
+  return response.ok ? await response.json() : Promise.reject('Not found');
 }
+// Promise.reject(new Error(`Not found`));
 
 export function fetchMoviesSearch(query, page) {
   const url = `${BASE_URL}${SEARCH_URL}?api_key=${API_KEY}&query=${query}&page=${page}`;
